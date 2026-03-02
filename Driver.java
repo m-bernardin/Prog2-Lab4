@@ -13,7 +13,7 @@ public class Driver {
         ArrayList<Student> students=new ArrayList<>();
         boolean running=true;
         while(running){
-            System.out.print("Please select an option\n1. Create and add student\n2. View all students\n3.View youngest student\n4. quit\n> ");
+            System.out.print("Please select an option\n1. Create and add student\n2. View all students\n3. View youngest student\n4. quit\n> ");
             switch (input.nextInt()) {
                 case 1:
                     input.nextLine();
@@ -23,28 +23,30 @@ public class Driver {
                     int age=input.nextInt();
                     System.out.print("Please enter the students studentId\n> ");
                     students.add(new Student(name,age,input.nextInt()));
-                    System.out.println("Student created: "+students.getLast());
+                    System.out.println("Student created: "+students.getLast()+"\n");
                     break;
                 case 2:
                     if(students.isEmpty()){
-                        System.out.println("No records to show...");
+                        System.out.println("No records to show...\n");
                         break;
                     }
                     System.out.println("All students info:");
                     for(Student student:students){
                         System.out.println(student);
                     }
+                    System.out.println("\n");
                     break;
                 case 3:
                     if(students.isEmpty()){
-                        System.out.println("No records to show...");
+                        System.out.println("No records to show...\n");
                         break;
                     }
                     Student youngest=null;
-                    for(Student student:students){
-                        if(student.getAge()<youngest.getAge())youngest=student;
+                    for(int i=0;i<students.size();++i){
+                        if(i==0)youngest=students.get(i);
+                        else if(students.get(i).getAge()<youngest.getAge())youngest=students.get(i);
                     }
-                    System.out.println("Youngest student: "+youngest);
+                    System.out.println("Youngest student: "+youngest+"\n");
                     break;
                 case 4:
                     running=false;
@@ -52,7 +54,7 @@ public class Driver {
                     System.out.println("Goodbye... :)");
                     break;
                 default:
-                    System.out.println("Please enter a valid option...");
+                    System.out.println("Please enter a valid option...\n");
                     break;
             }
         }
