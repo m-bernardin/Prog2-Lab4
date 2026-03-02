@@ -35,6 +35,7 @@ public class Words{
             default:
                 System.out.println("Invalid option!");
         }
+        input.close();
     }
     private static String action(String phrase){
         return phrase.toLowerCase();
